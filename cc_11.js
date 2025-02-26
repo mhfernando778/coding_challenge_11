@@ -28,3 +28,31 @@ console.log(book1.getDetails());
 book1.updateCopies(-1);
 console.log(book1.getDetails());
 // Expected output: "Title: The Great Gatsby, Author: F. Scott Fitzgerald, ISBN: 123456, Copies: 4"
+
+
+// Task 2 - Creating Borrower Class //
+
+class Borrower {
+    constructor(name, borrowerId, borrowedBooks) {
+        this.name = name;
+        this.borrowerId = borrowerId;
+        this.borrowedBooks = [];
+    };
+
+    borrowedBook(book) {
+        this.borrowedBooks.push(book)
+    };
+
+    returnBook(book) {
+        this.borrowedBooks = this.borrowedBooks.filter(title => title !== book)
+    };
+}
+
+const borrower1 = new Borrower("Alice Johnson", 201);
+borrower1.borrowedBook("The Great Gatsby");
+console.log(borrower1.borrowedBooks);
+// Expected output: ["The Great Gatsby"]
+
+borrower1.returnBook("The Great Gatsby");
+console.log(borrower1.borrowedBooks);
+// Expected output: []
