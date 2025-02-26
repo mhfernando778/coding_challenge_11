@@ -1,6 +1,6 @@
 // Task 1 - Creating Book Class //
 
-class Book {
+class Book { // creating a class for books with the guven parameters
     constructor(title, author, isbn, copies) {
         this.title = title;
         this.author = author;
@@ -8,11 +8,11 @@ class Book {
         this.copies = copies;
     };
 
-    getDetails() {
+    getDetails() { // listing the details of each book
         return `Book Title: ${this.title}, Author: ${this.author}, ISBN: ${this.isbn}, Copies: ${this.copies}`
     };
 
-    updateCopies(quantity) {
+    updateCopies(quantity) { // updating any changes to the number of copies for each book
         if (this.copies >= quantity) {
             (this.copies += quantity)
         } else {
@@ -21,7 +21,7 @@ class Book {
     };
 }
 
-const book1 = new Book("The Great Gatsby", "F. Scott Fitzgerald", 123456, 5);
+const book1 = new Book("The Great Gatsby", "F. Scott Fitzgerald", 123456, 5); // creating an instance
 console.log(book1.getDetails());
 // Expected output: "Title: The Great Gatsby, Author: F. Scott Fitzgerald, ISBN: 123456, Copies: 5"
 
