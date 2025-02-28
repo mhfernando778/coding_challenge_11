@@ -72,9 +72,32 @@ class Library { // starting a new class for library
     listBooks() { // adding a meethod that logs all books' details
         this.books.forEach(book => console.log(book.getDetails())); 
     };
-}
+
+    // Task 4 //
+    lendBook(borrowerId, isbn) {
+        const book = this.books.find(book => book.isbn === isbn);
+        const borrower = this.borrowers.find(borrower => borrower.borrowerId === borrowerId);
+
+        if (!book || !borrower || book.copies < 1) {
+            console.log("Cannot lend book.");
+            return;
+        }
+
+        book.updateCopies(-1);
+        borrower.borrowBook(book.title);
+        console.log(`"${book.title}" will be lent to ${borrower.name}.`);
+    };
+};
 
 const library = new Library(); // creating new instances
 library.addBook(book1);
 library.listBooks();
 // Expected output: "Title: The Great Gatsby, Author: F. Scott Fitzgerald, ISBN: 123456, Copies: 4"
+
+
+// Task 4 - Implementing Book Borrowing //
+library.lendBook(201, 123456);
+console.log(book1.getDetails());
+// Expected output: "Title: The Great Gatsby, Author: F. Scott Fitzgerald, ISBN: 123456, Copies: 3"
+console.log(borrower1.borrowedBooks);
+// Expected output: ["The Great Gatsby"]
