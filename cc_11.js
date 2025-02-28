@@ -59,22 +59,22 @@ console.log(borrower1.borrowedBooks); // logging the instance
 
 
 // Task 3 - Creating Library Class //
-class Library {
+class Library { // starting a new class for library
     constructor() {
-        this.books = [];
-        this.borrowers = [];
+        this.books = []; // an array to be added to
+        this.borrowers = []; // an array to be added to
     };
 
-    addBook(book) {
+    addBook(book) { // adding a method to adds new books to the library
         this.books.push(book)
     };
 
-    listBooks() {
+    listBooks() { // adding a meethod that logs all books' details
         this.books.forEach(book => console.log(book.getDetails())); 
     };
 }
 
-const library = new Library();
+const library = new Library(); // creating new instances
 library.addBook(book1);
 library.listBooks();
 // Expected output: "Title: The Great Gatsby, Author: F. Scott Fitzgerald, ISBN: 123456, Copies: 4"
