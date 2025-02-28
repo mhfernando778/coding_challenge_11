@@ -74,7 +74,7 @@ class Library { // starting a new class for library
     };
 
     // Task 4 //
-    lendBook(borrowerId, isbn) {
+    lendBook(borrowerId, isbn) { // adding method to implement book borrowing
         const book = this.books.find(book => book.isbn === isbn);
         const borrower = this.borrowers.find(borrower => borrower.borrowerId === borrowerId);
 
