@@ -88,7 +88,7 @@ class Library { // starting a new class for library
         console.log(`"${book.title}" will be lent to ${borrower.name}.`);
     };
 
-    returnBook(borrowerId, isbn) {
+    returnBook(borrowerId, isbn) { // adding a method for book returns
         const book = this.books.find(book => book.isbn === isbn);
         const borrower = this.borrowers.find( book => book.isbn === isbn);
     
