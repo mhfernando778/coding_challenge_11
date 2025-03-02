@@ -87,6 +87,16 @@ class Library { // starting a new class for library
         borrower.borrowBook(book.title);
         console.log(`"${book.title}" will be lent to ${borrower.name}.`);
     };
+
+    returnBook(borrowerId, isbn) {
+        const book = this.books.find(book => book.isbn === isbn);
+        const borrower = this.borrowers.find( book => book.isbn === isbn);
+    
+        if ( borrower && borrower.borrowedBooks.includes(book.title)) {
+            book.updateCopies(1);
+            borrower.returnBook(book.title);
+        };
+    }
 };
 
 const library = new Library(); // creating new instances
@@ -97,7 +107,14 @@ library.listBooks();
 
 // Task 4 - Implementing Book Borrowing //
 library.lendBook(201, 123456);
+console.log(book1.getDetails()); // Expected output: "Title: The Great Gatsby, Author: F. Scott Fitzgerald, ISBN: 123456, Copies: 3"
+console.log(borrower1.borrowedBooks); // Expected output: ["The Great Gatsby"]
+
+
+// Task 5 - Implementing Book Returns //
+
+library.returnBook(201, 123456);
 console.log(book1.getDetails());
-// Expected output: "Title: The Great Gatsby, Author: F. Scott Fitzgerald, ISBN: 123456, Copies: 3"
+// Expected output: "Title: The Great Gatsby, Author: F. Scott Fitzgerald, ISBN: 123456, Copies: 4"
 console.log(borrower1.borrowedBooks);
-// Expected output: ["The Great Gatsby"]
+// Expected output: []
